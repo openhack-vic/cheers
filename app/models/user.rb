@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :name, :description
   # attr_accessible :email, :password, :password_confirmation, :remember_me
-  
+  include ActiveModel::ForbiddenAttributesProtection
   has_many :music, :dependent => :destroy
 end
