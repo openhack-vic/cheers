@@ -1,4 +1,10 @@
 Cheers::Application.routes.draw do
+  
+  devise_for :users
+  root "upload#index"
+  get "music/index"
+  get "users/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
