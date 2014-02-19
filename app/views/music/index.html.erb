@@ -5,7 +5,9 @@
 		<%= f.text_field :title %><br/><br/>
 		
 		Your Theme:<br/>
-		<%= f.file_field :song %>
+		<%= f.file_field :song %><br/><br/>
+		
+		<%= f.check_box :is_current_theme %> Set as current theme<br/>
 		
 		<br/><br/>
 		<%= f.submit "Upload" %>

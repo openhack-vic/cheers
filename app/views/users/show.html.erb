@@ -11,9 +11,19 @@
 	<table cellspacing="10">
 		<% @music.each do |music| %>
 			<tr>
-				<td><%= music.title %></td>
+				<td><%= music.title %><br/>
+					<audio controls>
+					  <source src="<%= music.song %>" type="audio/mpeg">
+					  Your browser does not support this audio format.
+					</audio>
+				</td>
 				<td><%= link_to "Edit", edit_path(music) %></td>
 				<td><%= link_to "Delete", destroy_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+				<td>
+					<% if music.is_current_theme %>
+						&#x2713;
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</table>
