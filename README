@@ -1,0 +1,7 @@
+Omniauth:
+
+config/initializers/devise.rb
+- Change config.omniauth :google, APP_ID, APP_SECRET
+
+app/models/user.rb
+- Using :email to verify if user exists in app, change if using multiple providers
