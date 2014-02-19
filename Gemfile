@@ -46,5 +46,9 @@ gem 'carrierwave'
 gem 'pry'
 gem 'pry-debugger'
 
+#Better Errors
 gem 'better_errors'
 gem 'binding_of_caller'
+
+#Omniauth
+gem 'omniauth-google'
