@@ -12,9 +12,11 @@ Cheers::Application.routes.draw do
   delete "destroy/:id" => "music#destroy", :as => "destroy"
 
   # User routes
-  get "users" => "users#index"
-  get "users/:id" => "users#show", :as => "user"
-  get "entrance/:id" => "users#entrance", :as => "entrance"
+  resources :users do
+    collection do
+      get :listen
+    end 
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

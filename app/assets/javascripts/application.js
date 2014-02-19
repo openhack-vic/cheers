@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+jQuery(document).ready(function(){
+	var source = new EventSource('/users/listen');
+	source.addEventListener('enter', function(e){
+		// do something here
+		
+	});
+});

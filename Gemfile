@@ -52,3 +52,6 @@ gem 'binding_of_caller'
 
 #Omniauth
 gem 'omniauth-google'
+
+#Puma
+gem 'puma'
