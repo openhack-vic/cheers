@@ -5,7 +5,10 @@ Cheers::Application.routes.draw do
   
   # Music routes
   get "upload_your_theme" => "music#index", :as => "upload_theme"
+  get "edit/:id" => "music#edit", :as => "edit"
   post "upload" => "music#upload", :as => "upload"
+  patch "update/:id" => "music#update", :as => "update"
+  delete "destroy/:id" => "music#destroy", :as => "destroy"
   
   # User routes
   get "users" => "users#index"

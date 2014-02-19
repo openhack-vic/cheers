@@ -20,9 +20,32 @@ class MusicController < ApplicationController
     end
   end
   
+  def edit
+    @music = Music.find(params[:id])
+  end
+  
+  def update
+    @music = Music.find(params[:id])
+    
+    respond_to do |format|
+      if @music.update(music_params)
+        format.html { redirect_to current_user, notice: "#{@music.title} is updated!" }
+      else
+        format.html { redirect_to edit_path, alert: "#{@music.title} was not updated. Please try again later."}
+      end
+    end
+  end
+  
+  def destroy
+    @music = Music.find(params[:id])
+    @music.destroy
+    
+    redirect_to url_for(current_user)
+  end
+  
   private
   
-  def user_params
+  def music_params
     params.require(:music).permit(:title, :song)
   end
   

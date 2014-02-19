@@ -8,11 +8,15 @@
 <p>
 	<% if not @music.empty? %>
 	Uploaded music:<br/>
-	<ul>
+	<table cellspacing="10">
 		<% @music.each do |music| %>
-		<li><%= music.title %></li>
+			<tr>
+				<td><%= music.title %></td>
+				<td><%= link_to "Edit", edit_path(music) %></td>
+				<td><%= link_to "Delete", destroy_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+			</tr>
 		<% end %>
-	</ul>
+	</table>
 	<% else %>
 	No themes yet! Get on it!
 	<% end %>
