@@ -1,19 +1,28 @@
-<h1>Current Users</h1>
-<table border="1">
+<h1>FreeRunning Folks</h1>
+<table>
 	<tr>
-		<td>Name</td>
-		<td>Email</td>
-		<td>Description</td>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Current Theme Song</th>
 	</tr>
 	<% @users.each do |user| %>
 		<tr>
 			<td><%= link_to user.name, user_path(user) %></td>
-			<td><%= user.email %></td>
 			<% if user.description %>
 				<td><%= user.description %></td>
 			<% else %>
 				<td>Enjoys music upon entrance to any location at any given time.</td>
 			<% end %>
+			<td>
+				<% current_theme = Music.where(:user_id => user.id, :is_current_theme => true).first %>
+				<% if current_theme %>
+					<%= current_theme.song.identifier! %><br/>
+					<audio controls>
+					  <source src="<%= current_theme.song %>" type="audio/mpeg">
+					  Your browser does not support this audio format.
+					</audio>
+				<% end %>
+			</td>
 		</tr>
 	<% end %>
 </table>

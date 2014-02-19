@@ -1,8 +1,10 @@
 <h1><%= @user.name %></h1>
-<h3>Info</h3>
 <p>
-	<%= @user.email %><br/>
 	<%= @user.description %></br/>
+	<% if current_user == @user %>
+		<%= @user.email %></br/>
+		<%= link_to "Edit", edit_user_registration_path(@user) %><br/>
+	<% end %>
 </p>
 <h3>Music</h3>
 <p>
@@ -17,18 +19,20 @@
 					  Your browser does not support this audio format.
 					</audio>
 				</td>
-				<td><%= link_to "Edit", edit_path(music) %></td>
-				<td><%= link_to "Delete", destroy_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+				<% if current_user == @user %>
+					<td><%= link_to "Edit", edit_path(music) %></td>
+					<td><%= link_to "Delete", destroy_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+				<% end %>
 				<td>
 					<% if music.is_current_theme %>
-						&#x2713;
+						&#x2713; Current Theme
 					<% end %>
 				</td>
 			</tr>
 		<% end %>
 	</table>
 	<% else %>
-	No themes yet! Get on it!
+		No themes yet! <%= link_to "Get on it!", upload_theme_path %>
 	<% end %>
 </p>
 

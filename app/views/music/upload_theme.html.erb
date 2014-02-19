@@ -1,15 +1,12 @@
 <h1>Upload your theme song!</h1>
-<p>
+<div class="container">
 	<%= form_for @music, url: {action: "upload"}, multipart: true do |f| %>
-		<%= f.label :title %>:<br/>
-		<%= f.text_field :title %><br/><br/>
-		
-		Your Theme:<br/>
+		<%= f.label :title %>
+    <%= f.text_field :title %>
+    <br/>Your Theme<br/>
 		<%= f.file_field :song %><br/><br/>
-		
 		<%= f.check_box :is_current_theme %> Set as current theme<br/>
-		
 		<br/><br/>
 		<%= f.submit "Upload" %>
 	<% end %>
-</p>
+</div>

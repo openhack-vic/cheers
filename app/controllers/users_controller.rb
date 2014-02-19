@@ -9,6 +9,14 @@ class UsersController < ApplicationController
     @music = @user.music
   end
 
+  def entrance
+    @user = User.find(params[:id])
+    @theme_song = Music.where(:is_current_theme => true, :user_id => params[:id]).first
+    if @theme_song
+      # Do something here!
+    end
+  end
+
   private
 
   def user_params

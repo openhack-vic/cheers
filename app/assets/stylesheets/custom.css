@@ -32,7 +32,12 @@ body { padding-top: 39px; }
 }
 
 td {
-  padding-right: 10px;
+  padding: 10px;
+}
+
+th {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 

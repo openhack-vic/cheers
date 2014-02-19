@@ -1,11 +1,13 @@
 <h1>Edit Song Attributes</h1>
 <p>
 	<%= form_for @music, url: {action: "update"}, multipart: true do |f| %>
-		<%= f.label :title %>:<br/>
+		<%= f.label :title %>
 		<%= f.text_field :title %><br/><br/>
-		
-		Your Theme: <%= @music.song.identifier! %>
-		
+
+		Your Theme: <%= @music.song.identifier! %><br/><br/>
+
+		<%= f.check_box :is_current_theme %> Set as current theme<br/>
+
 		<br/><br/>
 		<%= f.submit "Update" %>
 	<% end %>
