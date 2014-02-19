@@ -1,0 +1,36 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/">Entrance Theme</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <% if current_user %>
+		  	  <li class="">
+	          	<%= link_to 'Account', url_for(current_user) %>
+	          </li>
+	          <li>
+	          	<%= link_to 'Upload Theme', upload_theme_path %>
+	          </li>
+	           <li class="">
+              	<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+              </li>
+          <% else %>
+          	  <% unless Rails.env == "production" %>
+	              <li class="">
+	              	<%= link_to 'Register', new_user_registration_path %>
+	              </li>
+              <% end %>
+              <li class="">
+          	  	<%= link_to 'Login', new_user_session_path %>
+          	  </li>
+	      <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

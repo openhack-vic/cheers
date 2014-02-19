@@ -37,3 +37,13 @@ gem 'bootstrap-sass'
 
 # Devise
 gem 'devise'
+
+# CarrierWave
+gem 'carrierwave'
+
+#Pry
+gem 'pry'
+gem 'pry-debugger'
+
+gem 'better_errors'
+gem 'binding_of_caller'

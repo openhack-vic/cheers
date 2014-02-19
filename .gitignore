@@ -16,3 +16,9 @@
 
 # Ignore Gemfile.lock
 Gemfile.lock
+
+# Ignore upload folder
+/public/uploads
+
+# Ignore .project file
+.project

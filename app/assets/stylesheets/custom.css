@@ -1,0 +1,206 @@
+body { padding-top: 39px; }
+ 
+@media screen and (max-width: 767px) {
+    .navbar {
+    	padding-right:15px;
+    	padding-left:15px;
+    }
+}
+
+/* Landing Page */
+.landing h1, .landing h2, .landing h3, .landing p {
+	color: #fff;
+}
+
+.landing-form label {
+	font-size: 14pt;
+	font-weight: 200;
+	text-align: left;
+	margin-left: 20px;
+}
+
+.landing-form input{
+	width: 90%;
+}
+
+.landing-tile {
+	
+}
+
+.sub p {
+	font-size: 14pt;
+}
+
+.show-grid .landing-blocks [class*="span"] {
+	background-color: rgba(238, 238, 238, 0.7);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.sub-description {
+	font-size: 12pt;
+	line-height: 25px;
+}
+
+.col{
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+	background-color:#ffc;
+}
+
+.col-wrap{  
+	overflow: hidden;   
+}
+
+/* Footer
+-------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 30px;
+  border-top: 1px solid #e5e5e5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+/* Show Grid
+ * Addition to bootstrap
+ */
+
+.show-grid [class*="span"] {
+/*  background-color: #eee;*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	min-height: 40px;
+	margin-bottom: 10px;
+}
+
+.inner-padded {
+  padding: 10px 10px;
+}
+
+/* Store tile */
+
+.store-tile a {
+    width: 200px;
+    
+}
+
+.store-tile img {
+	height: 100px;
+}
+
+/* Item tile */
+
+.item-tile img {
+	height: 150px;
+}
+
+.item-tile {
+	/*border-radius: 12px!important;
+	-webkit-border-radius: 12px!important;
+	-moz-border-radius: 12px!important;
+	background-color: rgba(247, 239, 117, 0.6);*/
+}
+
+.item-tile td {
+  text-align: center;
+}
+
+.item-tile-divider {
+	/*border-bottom: solid;
+  	border-width: thin;*/
+}
+
+.item-button {
+	text-align: right;
+}
+
+/* Hero-unit */
+.hero-unit-short {
+	height: 10px;
+}
+
+.hero-unit-title {
+	font-size: 30pt;
+}
+
+/* Table */
+.order-table-td {
+	border-style: dotted;
+	border-width: thin;
+}
+
+.order-table {
+	width: 100%;
+}
+
+.cost-table {
+	font-size:15pt; 
+	font-weight:200; 
+	width: 100%;
+}
+
+.cost-table-row {
+	border-bottom: thin dotted #333;
+}
+
+#pagesubtotal, #pagefee, #pagetax {
+	
+}
+
+#pagetotal {
+	
+}
+
+.navbar {
+
+}
+
+/* Navbar Color */
+/*.navbar {
+  .navbar-inner {
+    
+  }
+}
+
+.navbar-inverse .nav-collapse .nav > li > a,
+.navbar-inverse .nav-collapse .dropdown-menu a {
+	color: #000;
+}
+
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {
+	color: #000;
+	text-shadow: none;
+}
+
+.navbar-inverse .nav-collapse .nav .active > a,
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus,
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .nav > li > a:focus {
+
+	color: #599653;
+	background-color: #000;
+}
+
+.navbar-inverse .btn-navbar .icon-bar {
+	background-color: #599653;	
+}*/
+

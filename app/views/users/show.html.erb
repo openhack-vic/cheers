@@ -1,0 +1,20 @@
+<h1><%= @user.name %></h1>
+<h3>Info</h3>
+<p>
+	<%= @user.email %><br/>
+	<%= @user.description %></br/>
+</p>
+<h3>Music</h3>
+<p>
+	<% if not @music.empty? %>
+	Uploaded music:<br/>
+	<ul>
+		<% @music.each do |music| %>
+		<li><%= music.title %></li>
+		<% end %>
+	</ul>
+	<% else %>
+	No themes yet! Get on it!
+	<% end %>
+</p>
+

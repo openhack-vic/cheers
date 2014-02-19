@@ -1,9 +1,15 @@
 Cheers::Application.routes.draw do
   
   devise_for :users
-  root "upload#index"
-  get "music/index"
-  get "users/index"
+  root "music#index"
+  
+  # Music routes
+  get "upload_your_theme" => "music#index", :as => "upload_theme"
+  post "upload" => "music#upload", :as => "upload"
+  
+  # User routes
+  get "users" => "users#index"
+  get "users/:id" => "users#show", :as => "user"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -15,3 +15,4 @@
 //= require_tree .
 // Loads all Boostrap javascripts
 //= require bootstrap
+//= require bootstrap/dropdown
