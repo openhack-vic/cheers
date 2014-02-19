@@ -14,7 +14,7 @@ Cheers::Application.routes.draw do
   # User routes
   get "users" => "users#index"
   get "users/:id" => "users#show", :as => "user"
-  post "entrance" => "users#entrance", :as => "entrance"
+  get "entrance/:id" => "users#entrance", :as => "entrance"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
