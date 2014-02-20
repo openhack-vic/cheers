@@ -5,3 +5,13 @@ config/initializers/devise.rb
 
 app/models/user.rb
 - Using :email to verify if user exists in app, change if using multiple providers
+
+Live Stream:
+
+app/assets/javascripts/application.js
+- Script calls audio control with id "current_song" located in app/views/application/_header.html.erb
+  to play song sent from calling listener in UsersController
+
+app/controllers/users_controller.rb
+- listen sends out event-stream data to listener in application.js
+- still need to fetch from somewhere to trigger an entrance event!

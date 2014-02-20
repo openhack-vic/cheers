@@ -10,7 +10,7 @@ module ServerSide
       options.each do |k, v|
         @io.write "#{k}: #{v}\n"
       end
-      @io.write "data: #{object}\n\n"
+      @io.write "data: #{JSON.dump(object)}\n\n"
     end
 
     def close
@@ -20,7 +20,7 @@ module ServerSide
 end
 
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:listen]
   include ActionController::Live
 
   def index
@@ -33,17 +33,14 @@ class UsersController < ApplicationController
   end
 
   def listen
-    @user = User.find(1)
-    @theme_song = @user.music.where(:is_current_theme => true).first
     response.headers['Content-Type'] = 'text/event-stream'
     sse = ServerSide::SSE.new(response.stream)
 
     begin
-      loop do
-        sse.write({ :user => "#{@user.name}", :song => "#{@theme_song.song}" }, :event => "enter")
-        sleep 1
-      end
-
+      # Set load to true when info is passed down
+      # USER.NAME = #{@user.name}
+      # MUSIC.SONG = #{@music.song}
+      sse.write({ :user => "USER.NAME", :song => "MUSIC.SONG", :load => false }, :event => "enter")
     rescue IOError
     ensure
       sse.close
