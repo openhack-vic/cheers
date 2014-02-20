@@ -5,17 +5,15 @@ Cheers::Application.routes.draw do
   root "music#upload_theme"
 
   # Music routes
+  resources :music
   get "upload_your_theme" => "music#upload_theme", :as => "upload_theme"
-  get "edit/:id" => "music#edit", :as => "edit"
   post "upload" => "music#upload", :as => "upload"
-  patch "update/:id" => "music#update", :as => "update"
-  delete "destroy/:id" => "music#destroy", :as => "destroy"
 
   # User routes
   resources :users do
     collection do
       get :listen
-    end 
+    end
   end
 
   # The priority is based upon order of creation:

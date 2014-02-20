@@ -20,8 +20,8 @@
 					</audio>
 				</td>
 				<% if current_user == @user %>
-					<td><%= link_to "Edit", edit_path(music) %></td>
-					<td><%= link_to "Delete", destroy_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+					<td><%= link_to "Edit", edit_music_path(music) %></td>
+					<td><%= link_to "Delete", music_path(music), method: :delete, data: { confirm: 'Are you sure?' }%></td>
 				<% end %>
 				<td>
 					<% if music.is_current_theme %>

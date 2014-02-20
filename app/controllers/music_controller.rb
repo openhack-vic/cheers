@@ -42,7 +42,7 @@ class MusicController < ApplicationController
       if @music.update(music_params)
         format.html { redirect_to current_user, notice: "#{@music.title} is updated!" }
       else
-        format.html { redirect_to edit_path, alert: "#{@music.title} was not updated. Please try again later."}
+        format.html { redirect_to edit_music_path(@music), alert: "#{@music.title} was not updated. Please try again later."}
       end
     end
   end
