@@ -42,16 +42,15 @@ gem 'devise'
 # CarrierWave
 gem 'carrierwave'
 
-#Pry
-gem 'pry'
-gem 'pry-debugger'
-
-#Better Errors
-gem 'better_errors'
-gem 'binding_of_caller'
+group :test, :development do
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
 #Omniauth
 gem 'omniauth-google'
 
 #Puma
 gem 'puma'
+
