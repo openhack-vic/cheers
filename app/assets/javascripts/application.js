@@ -22,12 +22,11 @@ jQuery(document).ready(function(){
 		data = jQuery.parseJSON( e.data );
 		// Located in app/views/application/_header.html.erb
 		var audioElement = document.getElementById("current_song");
-		if (data["load"])
+		if (data["load"] && audioElement.paused)
 		{
-			audioElement.src = data["song"];
+			audioElement.src = data["song"].song.url;
 			audioElement.load();
-			audioElement.play();
 		}
 	});
 });
-			
+

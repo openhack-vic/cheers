@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @music = @user.music
   end
 
@@ -37,10 +37,7 @@ class UsersController < ApplicationController
     sse = ServerSide::SSE.new(response.stream)
 
     begin
-      # Set load to true when info is passed down
-      # USER.NAME = #{@user.name}
-      # MUSIC.SONG = #{@music.song}
-      sse.write({ :user => "USER.NAME", :song => "MUSIC.SONG", :load => false }, :event => "enter")
+      sse.write({song: Music.where(user_id: current_user.id, is_current_theme: true).first.song, :load => true }, :event => "enter")
     rescue IOError
     ensure
       sse.close
