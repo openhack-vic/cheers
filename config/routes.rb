@@ -13,6 +13,7 @@ Cheers::Application.routes.draw do
   resources :users do
     collection do
       get :listen
+      post :trigger
     end
   end
 

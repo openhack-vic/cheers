@@ -2,18 +2,18 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:google]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:google]
   # attr_accessible :title, :body
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :name, :description
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   include ActiveModel::ForbiddenAttributesProtection
   has_many :music, :dependent => :destroy
-  
+
   validates :name, :email, presence: true
   validates :email, uniqueness: true
-  
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.google_data"] && data["info"]
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
   def self.find_for_google_oauth(auth)
     u = where(auth.slice(:email)).first_or_create do |user|
       user.name = auth.info.name

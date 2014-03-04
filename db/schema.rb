@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219185514) do
+ActiveRecord::Schema.define(version: 20140304223449) do
 
   create_table "musics", force: true do |t|
     t.string   "title"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140219185514) do
     t.string   "last_sign_in_ip"
     t.string   "google_uid"
     t.string   "provider"
+    t.boolean  "is_active"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
