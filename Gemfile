@@ -43,6 +43,11 @@ gem 'devise'
 gem 'carrierwave'
 
 group :test, :development do
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
