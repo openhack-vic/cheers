@@ -15,3 +15,7 @@ app/assets/javascripts/application.js
 app/controllers/users_controller.rb
 - listen sends out event-stream data to listener in application.js
 - still need to fetch from somewhere to trigger an entrance event!
+
+Trigger Action:
+- Use a POST method to trigger the music player on the top nav bar
+- sample command as "curl --data "user_id=3" http://localhost:3000/users/trigger"
