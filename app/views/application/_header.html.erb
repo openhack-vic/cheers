@@ -1,13 +1,13 @@
 <%= nav_bar :fixed => :top, :brand => 'Grand Entrance', :responsive => true do %>
   Now Playing: <span id = "song_name">waiting for the trigger</span>
   <%= menu_group :pull => :right do %>
-    <% if current_user %>
-      <li>
+    <li>
       <audio controls id="current_song" style="padding-top: 5px">
-      <source src="" type="audio/mpeg">
-      Your browser does not support this audio format.
+        <source src="" type="audio/mpeg">
+        Your browser does not support this audio format.
       </audio>
-      </li>
+    </li>
+    <% if current_user %>
       <%= menu_item "Upload Theme Song", upload_theme_path, :active => true %>
       <%= menu_item "Community", users_path %>
       <%= menu_item "Profile", url_for(current_user) %>

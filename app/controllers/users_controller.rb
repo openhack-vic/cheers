@@ -39,6 +39,7 @@ class UsersController < ApplicationController
       active_user.is_active = true
       active_user.save!
     end
+    head :no_content
   end
 
   def listen
