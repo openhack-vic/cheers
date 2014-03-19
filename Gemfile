@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 
 # Old assets group
@@ -13,34 +10,23 @@ gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
-# CanCan
-gem "cancan"
+# auth and authentication
+gem 'cancan'
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth-google-oauth2'
 
 # Bootstrap time
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
-# Devise
-gem 'devise'
-
 # CarrierWave
 gem 'carrierwave'
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+end
 
 group :test, :development do
   gem 'guard'
@@ -51,11 +37,13 @@ group :test, :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'factory_girl_rails'
+  gem 'simplecov', '~> 0.7.1', :require => false
+  gem 'simplecov-rcov', :require => false
+  gem 'awesome_print'
 end
-
-#Omniauth
-gem 'omniauth-google'
 
 #Puma
 gem 'puma'
 
+gem 'dotenv-rails'
