@@ -12,7 +12,8 @@ gem 'jquery-rails'
 
 # auth and authentication
 gem 'cancan'
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', '~> 3.1.0.rc'
+gem 'devise-i18n'
 gem 'omniauth-google-oauth2'
 
 # Bootstrap time
