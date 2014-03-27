@@ -1,26 +1,8 @@
-require 'json'
-
-module ServerSide
-  class SSE
-    def initialize io
-      @io = io
-    end
-
-    def write object, options = {}
-      options.each do |k, v|
-        @io.write "#{k}: #{v}\n"
-      end
-      @io.write "data: #{JSON.dump(object)}\n\n"
-    end
-
-    def close
-      @io.close
-    end
-  end
-end
+require "sse"
 
 class UsersController < ApplicationController
   include ActionController::Live
+  include ServerSide
   before_filter :authenticate_user!, :except => [:listen, :trigger]
   skip_before_filter  :verify_authenticity_token
 
@@ -35,11 +17,14 @@ class UsersController < ApplicationController
 
   def trigger
     active_user = User.find(params[:user_id])
-    if active_user
+    active_music = Music.where(user_id: active_user.id, is_current_theme: true).first
+    if active_music
       active_user.is_active = true
       active_user.save!
+      head :no_content
+    else
+      head :not_found
     end
-    head :no_content
   end
 
   def listen
@@ -51,19 +36,17 @@ class UsersController < ApplicationController
       load = true
     end
     response.headers['Content-Type'] = 'text/event-stream'
-    sse = ServerSide::SSE.new(response.stream)
+    sse = SSE.new(response.stream)
     begin
-      sse.write({song: Music.where(user_id: last_updated_user.id, is_current_theme: true).first.song, :load => load }, :event => "enter")
-    rescue IOError
+      song = Music.where(user_id: last_updated_user.id, is_current_theme: true).first
+      if song
+        sse.write({song: song.song, :load => load }, :event => "enter")
+      end
     ensure
       sse.close
     end
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:id, :name, :description, :email, :password, :password_confirmation, :current_password)
-  end
 
 end
