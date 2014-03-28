@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @music = @user.music
+    @music = @user.songs
   end
 
   def trigger
