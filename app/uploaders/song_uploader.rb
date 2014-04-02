@@ -15,7 +15,7 @@ class SongUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/user_#{model.user_id}"
   end
-  
+
   def identifier!
     self.file.identifier
   end
